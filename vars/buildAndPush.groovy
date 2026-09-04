@@ -37,6 +37,7 @@ def call(PipelineConfig cfg, String buildNumber) {
 
         sh """
             DOCKER_BUILDKIT=1 docker build \
+              --pull \
               --build-arg BUILD_NUMBER=${buildNumber} \
               --build-arg COMMIT_SHA=${gitSha} \
               --build-arg "COMMIT_MESSAGE=${gitMsg}" \
